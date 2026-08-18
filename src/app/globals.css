@@ -1,26 +1,126 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #09090b;
+  --muted: #f4f4f5;
+  --muted-foreground: #52525b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --border: #e4e4e7;
+  --accent: #059669;
+  --accent-hover: #047857;
+  --accent-foreground: #ffffff;
+  --accent-muted: #e6f7f0;
+  --accent-muted-foreground: #059669;
+  --pill-bg: #f4f4f5;
+  --pill-border: #d4d4d8;
+  --badge-bg: #e6f7f0;
+  --badge-text: #059669;
+  --anomaly-bg: #fef2f2;
+  --anomaly-border: #fca5a5;
+  --anomaly-text: #991b1b;
+  --ocr-bg: #f0fdf4;
+  --ocr-border: #86efac;
+  --ocr-text: #166534;
+  --code-bg: #f4f4f5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --background: #0a0a0b;
+  --foreground: #f4f4f5;
+  --muted: #141417;
+  --muted-foreground: #a1a1aa;
+  --card: #111113;
+  --card-foreground: #f4f4f5;
+  --border: #1e1e24;
+  --accent: #3ddc97;
+  --accent-hover: #2ecc71;
+  --accent-foreground: #040d08;
+  --accent-muted: #0b291d;
+  --accent-muted-foreground: #3ddc97;
+  --pill-bg: #141417;
+  --pill-border: #27272a;
+  --badge-bg: #0b291d;
+  --badge-text: #3ddc97;
+  --anomaly-bg: #2b1215;
+  --anomaly-border: #5c1d24;
+  --anomaly-text: #fca5a5;
+  --ocr-bg: #09281a;
+  --ocr-border: #0d5c48;
+  --ocr-text: #6ee7b7;
+  --code-bg: #141417;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-bg: var(--background);
+  --color-fg: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-fg: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-fg: var(--card-foreground);
+  --color-border-color: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-fg: var(--accent-foreground);
+  --color-accent-muted: var(--accent-muted);
+  --color-accent-muted-fg: var(--accent-muted-foreground);
+  --color-pill: var(--pill-bg);
+  --color-pill-border: var(--pill-border);
+  --color-badge-bg: var(--badge-bg);
+  --color-badge-text: var(--badge-text);
+  --color-anomaly-bg: var(--anomaly-bg);
+  --color-anomaly-border: var(--anomaly-border);
+  --color-anomaly-text: var(--anomaly-text);
+  --color-ocr-bg: var(--ocr-bg);
+  --color-ocr-border: var(--ocr-border);
+  --color-ocr-text: var(--ocr-text);
+  --color-code-bg: var(--code-bg);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.display-headline {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: clamp(2.25rem, 4.5vw + 0.75rem, 4.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  font-weight: 300; /* Thin/Light weight for cinematic restraint */
+  text-wrap: balance;
+}
+
+.subhead-text {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-size: clamp(1.05rem, 1.2vw + 0.5rem, 1.25rem);
+  line-height: 1.6;
+}
+
+.section-headline {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  font-weight: 350; /* Thin/Light weight */
+  text-wrap: balance;
+}
+
+.mono-label {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
